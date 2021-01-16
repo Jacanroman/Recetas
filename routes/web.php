@@ -32,8 +32,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+/*con el anterior RecetasController que tenia un invoke
 Route::get('/recetas', 'RecetaController');
+*/
+
+Route::get('/recetas','RecetaController@index');
 
 Auth::routes();
 
