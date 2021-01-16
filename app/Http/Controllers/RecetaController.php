@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Receta;
 use Illuminate\Http\Request;
 
 class RecetaController extends Controller
@@ -13,7 +14,7 @@ class RecetaController extends Controller
      */
     public function index()
     {
-        //
+        return view('recetas.index');
     }
 
     /**
@@ -23,7 +24,7 @@ class RecetaController extends Controller
      */
     public function create()
     {
-        //
+        return view('recetas.create');
     }
 
     /**
@@ -40,10 +41,10 @@ class RecetaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Receta  $receta
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Receta $receta)
     {
         //
     }
@@ -51,10 +52,10 @@ class RecetaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Receta  $receta
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Receta $receta)
     {
         //
     }
@@ -63,10 +64,10 @@ class RecetaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Receta  $receta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Receta $receta)
     {
         //
     }
@@ -74,10 +75,10 @@ class RecetaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Receta  $receta
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Receta $receta)
     {
         //
     }

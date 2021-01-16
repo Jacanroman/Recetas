@@ -1,22 +1,38 @@
 @extends('layouts.app')
 
+
+@section('botones')
+
+    <a href="{{route('recetas.create')}}" class="btn btn-primary mr-2">Crear Receta</a>
+
+@endsection
 {{--esto de @section('content') indica que vamos a hacer 
 a tener un bloque de codigo que vamos a meter dentro de content que 
 esta dentro de layouts.app/app.blade.php @yeald('section')--}}
 @section('content')
 
-<h1>Recetas</h1>
-@foreach($recetas as $receta)
-<li>{{$receta}} </li>
-    
-@endforeach
+    <h2 class="text-center mb-5">Administra tus recetas</h2>
 
+    <div class="col-md-10 mx-auto bg-white p-3">
+        <table class="table">
+            <thead class="bg-primary text-ligth">
+                <tr>
+                    <th scole="col">Titulo</th>
+                    <th scole="col">Categoria</th>
+                    <th scole="col">Acciones</th>
+                </tr>
+            </thead>
 
-<h1>Categorias</h1>
-@foreach($categorias as $categoria)
+            <tbody>
+                <tr>
+                    <td>Pizza</td>
+                    <td>Pizzas</td>
+                    <td>
 
-<li>{{$categoria}}</li>
-
-@endforeach
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 @endsection
