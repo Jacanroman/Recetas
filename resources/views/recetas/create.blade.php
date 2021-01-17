@@ -11,6 +11,8 @@
 
     <h2 class="text-center mb-5">Crear Nueva Receta</h2>
 
+    
+
     <div class="row justify-content-center mt-5">
         <div class="col-md-8">
             <form method="POST" action="{{route('recetas.store')}}">
@@ -20,6 +22,27 @@
                     <input type="text" name="titulo" class="form-control @error('titulo') is-invalid @enderror" id="titulo" placeholder="Titulo Receta" value="{{old('titulo')}}" />
                 
                     @error('titulo')
+                        <span class="invalid-feedback d-block" role="alert">
+                            <strong>{{$message}}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="categoria">Categoria</label>
+
+                    <select
+                        name="categoria"
+                        class="form-control @error('categoria') is-invalid @enderror"
+                        id="categoria"
+                    >
+                        <option value="">-- Seleccione-</option>
+                        @foreach($categorias as $id => $categoria)
+                            <option value="{{$id}}" {{old('categoria') == $id ? 'selected' : ''}}>{{$categoria}}</option>
+                        @endforeach
+                    </select>
+
+                    @error('categoria')
                         <span class="invalid-feedback d-block" role="alert">
                             <strong>{{$message}}</strong>
                         </span>
