@@ -18,7 +18,7 @@
 
     <div class="row justify-content-center mt-5">
         <div class="col-md-8">
-            <form method="POST" action="{{route('recetas.store')}}">
+            <form method="POST" action="{{route('recetas.store')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="titulo">Titulo Receta</label>
@@ -70,6 +70,22 @@
                     <trix-editor input='ingredientes'></trix-editor>
                     
                     @error('ingredientes')
+                        <span class="invalid-feedback d-block" role="alert">
+                            <strong>{{$message}}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="form-group mt-4">
+                    <label for='imagen'>Imagen</label>
+                    <input 
+                        id="imagen" 
+                        type="file" 
+                        class="form-control"
+                        name="imagen"
+                    />
+
+                    @error('imagen')
                         <span class="invalid-feedback d-block" role="alert">
                             <strong>{{$message}}</strong>
                         </span>
