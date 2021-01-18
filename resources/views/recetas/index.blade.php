@@ -13,6 +13,7 @@ esta dentro de layouts.app/app.blade.php @yeald('section')--}}
 
     <h2 class="text-center mb-5">Administra tus recetas</h2>
 
+
     <div class="col-md-10 mx-auto bg-white p-3">
         <table class="table">
             <thead class="bg-primary text-ligth">
@@ -23,14 +24,19 @@ esta dentro de layouts.app/app.blade.php @yeald('section')--}}
                 </tr>
             </thead>
 
+            
             <tbody>
+                @foreach($recetas as $receta)
                 <tr>
-                    <td>Pizza</td>
-                    <td>Pizzas</td>
+                    <td>{{$receta->titulo}}</td>
+                    <td>{{$receta->categoria_id}}</td>
                     <td>
-
+                        <a href="" class="btn btn-danger mr-1">Eliminar</a>
+                        <a href="" class="btn btn-dark mr-1">Editar</a>
+                        <a href="" class="btn btn-success mr-1">Ver</a>
                     </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
