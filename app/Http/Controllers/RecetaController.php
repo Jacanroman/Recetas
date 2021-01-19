@@ -81,7 +81,7 @@ class RecetaController extends Controller
         $img = Image::make(public_path("storage/{$ruta_imagen}"))->fit(1000, 550);
         $img->save();
 
-        //almacenar en la base de datos (sin modelos)
+        /*almacenar en la base de datos (sin modelos)
         DB::table('recetas')->insert([
             'titulo' =>$data['titulo'],
             'ingredientes'=>$data['ingredientes'],
@@ -90,6 +90,17 @@ class RecetaController extends Controller
             'user_id' =>Auth::user()->id,
             'categoria_id' =>$data['categoria']
 
+        ]);
+        */
+
+        //alamacenar en la base de datos con modelo
+
+        auth()->user()->recetas()->create([
+            'titulo' =>$data['titulo'],
+            'ingredientes'=>$data['ingredientes'],
+            'preparacion'=>$data['preparacion'],
+            'imagen' => $ruta_imagen,
+            'categoria_id' =>$data['categoria']
         ]);
         
         //dd($request->all());
