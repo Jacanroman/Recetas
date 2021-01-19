@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CategoriaReceta;
 use App\Models\Receta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -36,9 +37,17 @@ class RecetaController extends Controller
     public function create()
     {
 
-        //DB::table('categoria_receta')->get()->pluck('nombre','id')->dd();
+        //DB::table('categoria_recetas')->get()->pluck('nombre','id')->dd();
 
-        $categorias = DB::table('categoria_receta')->get()->pluck('nombre','id');
+        /*Obtener las categorias (sin modelo)
+        $categorias = DB::table('categoria_recetas')->get()->pluck('nombre','id');
+        */
+
+        //Con modelo
+
+        $categorias = CategoriaReceta::all(['id','nombre']);
+
+
         return view('recetas.create')->with('categorias',$categorias);
     }
 
@@ -68,7 +77,8 @@ class RecetaController extends Controller
 
 
         //Resize de la imagen (usamos intervention Image)
-        $img = Image::make(public_path('storage/{$ruta_imagen}'))->fit(1000, 550);
+        //$img = Image::make(public_path("storage/{$ruta_imagen}"))->fit(1000, 550);
+        $img = Image::make(public_path("storage/{$ruta_imagen}"))->fit(1000, 550);
         $img->save();
 
         //almacenar en la base de datos (sin modelos)

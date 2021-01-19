@@ -29,7 +29,7 @@ esta dentro de layouts.app/app.blade.php @yeald('section')--}}
                 @foreach($recetas as $receta)
                 <tr>
                     <td>{{$receta->titulo}}</td>
-                    <td>{{$receta->categoria_id}}</td>
+                    <td>{{$receta->categoria->nombre}}</td>
                     <td>
                         <a href="" class="btn btn-danger mr-1">Eliminar</a>
                         <a href="" class="btn btn-dark mr-1">Editar</a>
