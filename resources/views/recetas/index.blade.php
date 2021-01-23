@@ -33,7 +33,12 @@ esta dentro de layouts.app/app.blade.php @yeald('section')--}}
                     <td>
                         <a href="" class="btn btn-danger mr-1">Eliminar</a>
                         <a href="" class="btn btn-dark mr-1">Editar</a>
-                        <a href="" class="btn btn-success mr-1">Ver</a>
+                        <!--Tenemos dos formas para hacer un href a un controlador
+                        o con action poniendo la ruta completa y el controlador y la accion
+                        <a href="{{--action('App\Http\Controllers\RecetaController@show',['receta' => $receta->id])--}}" class="btn btn-success mr-1">Ver</a>
+                        
+                        o con route y el alias (esta forma mejor)-->
+                        <a href="{{route('recetas.show',['receta' => $receta->id])}}" class="btn btn-success mr-1">Ver</a>
                     </td>
                 </tr>
                 @endforeach

@@ -14,7 +14,14 @@ class RecetaController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        //Con esto protegemos las rutas para que solo se puedan abrir
+        //si estas autentificado
+
+        //anadiendo Except le decimos que esta todo protegido menos
+        // la function que le agregamos en el Except en este caso show estara publico
+        $this->middleware('auth',['except'=>'show']);
+
+        //para agregar varias funciones en el except es 'except'=>['show','create']
     }
     /**
      * Display a listing of the resource.
