@@ -50,7 +50,7 @@ class RecetaController extends Controller
         $categorias = DB::table('categoria_recetas')->get()->pluck('nombre','id');
         */
 
-        //Con modelo
+        //Con modelo (para recoger el id_categoria y el nombre)
 
         $categorias = CategoriaReceta::all(['id','nombre']);
 
@@ -137,7 +137,17 @@ class RecetaController extends Controller
      */
     public function edit(Receta $receta)
     {
-        //
+        /*llamamos al modelo de CategoriaReceta para recoger
+        el id_categorias y el nombre de categorias*/
+
+        $categorias = CategoriaReceta::all(['id','nombre']);
+        
+        //pasamos la vista
+        //return view('recetas.edit');
+
+        //Pasamos la vista con los datos que recogimos al llamar al modelo
+        //despues de Compact tenemos que pasar el nombre de la variable anterior $categorias
+        return view('recetas.edit', compact('categorias'));
     }
 
     /**
