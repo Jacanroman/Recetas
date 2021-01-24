@@ -167,9 +167,43 @@ class RecetaController extends Controller
      */
     public function update(Request $request, Receta $receta)
     {
-        //
+        
+        //return $receta;
+        //Validacion
+        
+        $data = request()->validate([
+            'titulo' => 'required|min:6',
+            'categoria' => 'required',
+            'preparacion' => 'required',
+            'ingredientes' => 'required',
+        ]);
 
-        return "editando...";
+        //Asignar los valores
+        $receta->titulo = $data['titulo'];
+        $receta->preparacion = $data['preparacion'];
+        $receta->ingredientes = $data['ingredientes'];
+        $receta->categoria_id = $data['categoria'];
+
+        //Si el usuario sube una nueva imagen
+        if(request('imagen')){
+
+            $ruta_imagen = $request['imagen']->store('upload-recetas','public');
+
+            //Resize de la imagen (usamos intervention Image)
+            //$img = Image::make(public_path("storage/{$ruta_imagen}"))->fit(1000, 550);
+            $img = Image::make(public_path("storage/{$ruta_imagen}"))->fit(1000, 550);
+            $img->save();
+
+            //Asignar al objeto
+            $receta->imagen = $ruta_imagen;
+        }
+        
+
+        $receta->save();
+
+        //redireccionar
+
+        return redirect()->route('recetas.index');
     }
 
     /**

@@ -30,7 +30,7 @@
                 mediante Laravel la operacion que vamos a realizar en este caso PUT-->
                 @method('PUT')
 
-                
+
                 <div class="form-group">
                     <label for="titulo">Titulo Receta</label>
                     <input type="text" 
@@ -117,7 +117,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" class="btn btn-primary" value="Agregar Receta" />
+                    <input type="submit" class="btn btn-primary" value="Editar Receta" />
                 </div>
             </form>
         </div>
