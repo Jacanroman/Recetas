@@ -156,8 +156,6 @@ class RecetaController extends Controller
         */
         return view('recetas.edit', compact('categorias','receta'));
         
-
-
     }
 
     /**
@@ -170,6 +168,8 @@ class RecetaController extends Controller
     public function update(Request $request, Receta $receta)
     {
         //
+
+        return "editando...";
     }
 
     /**

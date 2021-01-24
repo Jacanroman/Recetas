@@ -21,8 +21,16 @@
 
     <div class="row justify-content-center mt-5">
         <div class="col-md-8">
-            <form method="POST" action="{{route('recetas.store')}}" enctype="multipart/form-data">
+            <!--en action= route despues de poner el nombre de la ruta en el array el primer 'receta' es el mismo
+            que tenemos en el controller y en el comodin de web.php -->
+            <form method="POST" action="{{route('recetas.update',['receta' =>$receta->id])}}" enctype="multipart/form-data">
                 @csrf
+
+                <!--Como html no soporta PUT, PATCH, DELETE le tenemos que indicar
+                mediante Laravel la operacion que vamos a realizar en este caso PUT-->
+                @method('PUT')
+
+                
                 <div class="form-group">
                     <label for="titulo">Titulo Receta</label>
                     <input type="text" 
