@@ -142,12 +142,22 @@ class RecetaController extends Controller
 
         $categorias = CategoriaReceta::all(['id','nombre']);
         
-        //pasamos la vista
-        //return view('recetas.edit');
 
-        //Pasamos la vista con los datos que recogimos al llamar al modelo
-        //despues de Compact tenemos que pasar el nombre de la variable anterior $categorias
+            //VISTAAAAA
+        
+        /*Pasamos la vista con los datos que recogimos al llamar al modelo
+        despues de Compact tenemos que pasar el nombre de la variable anterior $categorias
         return view('recetas.edit', compact('categorias'));
+        */
+
+         /*Pasamos la vista con los datos que recogimos al llamar al modelo
+        despues de Compact tenemos que pasar el nombre de la variable anterior $categorias
+        en la function edit ya tenemos una instancia de $receta y le pasamos esa receta a la vista tambien
+        */
+        return view('recetas.edit', compact('categorias','receta'));
+        
+
+
     }
 
     /**
