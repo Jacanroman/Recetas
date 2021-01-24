@@ -167,7 +167,10 @@ class RecetaController extends Controller
      */
     public function update(Request $request, Receta $receta)
     {
-        
+        //Revisar el policy
+
+        $this->authorize('update', $receta);
+
         //return $receta;
         //Validacion
         
