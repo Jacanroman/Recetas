@@ -23,7 +23,9 @@ class UsuarioSeeder extends Seeder
             'url'=>'www.juan.com',
         ]);
 
-        $user->perfil()->create();
+        //Esto no hace falta porque en el modelo User  ya se crea el boot
+        //en el boot() que crea automaticamente el perfil.
+        //$user->perfil()->create();
 
         /*
         DB::table('users')->insert([
@@ -43,7 +45,7 @@ class UsuarioSeeder extends Seeder
             'url'=>'www.juan.com',
         ]);
 
-        $user2->perfil()->create();
+        //$user2->perfil()->create();
 
     }
 }
