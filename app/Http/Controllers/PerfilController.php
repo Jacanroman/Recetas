@@ -41,7 +41,20 @@ class PerfilController extends Controller
      */
     public function update(Request $request, Perfil $perfil)
     {
-        //
+        //Validar
+        $data = request()->validate([
+            'url' => 'required',
+            'biografia'=>'required',
+            'nombre'=>'required'
+        ]);
+
+        // Si el usuario sube una imagen
+
+        //Guardar informacion
+
+
+        //redireccionar
+        return "actualizando perfil";
     }
 
     /**
