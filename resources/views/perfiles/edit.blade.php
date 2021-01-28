@@ -88,7 +88,7 @@
                         <div class="mt-4">
                             <p>Imagen Actual:</p>
 
-                            {{--<img src="/recetaslaravel/storage/app/public/{{$receta->imagen}}" style="width: 300px" />--}}
+                            <img src="/recetaslaravel/storage/app/public/{{$perfil->imagen}}" style="width: 300px" />
                         </div>
 
                         @error('imagen')
@@ -100,7 +100,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" class="btn btn-primary" value="Agregar Receta">
+                    <input type="submit" class="btn btn-primary" value="Editar Perfil">
                 </div>
         </div>
     </div>
