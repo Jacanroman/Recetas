@@ -30,10 +30,17 @@ class RecetaController extends Controller
      */
     public function index()
     {
+        // este $usuario se usa si no queremos utilizar el helper de laravel
+        //para pasar el id del usuario. En este caso lo haremos con el helper
+        //por lo que esta variable no hace falta.
+        //$usuario =auth()->user();
+
         $recetas = Auth::user()->recetas;
         //esto es lo mismo que lo anterior
         //auth()->user()->recetas->dd();
-        return view('recetas.index')->with('recetas', $recetas);
+        return view('recetas.index')->
+            with('recetas', $recetas);
+            //->with('usuario', $usuario);
     }
 
     /**
