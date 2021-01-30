@@ -35,9 +35,19 @@ class RecetaController extends Controller
         //por lo que esta variable no hace falta.
         //$usuario =auth()->user();
 
-        $recetas = Auth::user()->recetas;
+
+        //$recetas = Auth::user()->recetas;
         //esto es lo mismo que lo anterior
         //auth()->user()->recetas->dd();
+        
+        
+        //Recetas con paginacion
+
+        $usuario = auth()->user()->id;
+        $recetas=Receta::where('user_id', $usuario)->paginate(2);
+        
+        
+        
         return view('recetas.index')->
             with('recetas', $recetas);
             //->with('usuario', $usuario);
