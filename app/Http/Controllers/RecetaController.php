@@ -144,6 +144,10 @@ class RecetaController extends Controller
      */
     public function edit(Receta $receta)
     {
+
+        //Revisar el policy
+        $this->authorize('view', $receta);
+
         /*llamamos al modelo de CategoriaReceta para recoger
         el id_categorias y el nombre de categorias*/
 
