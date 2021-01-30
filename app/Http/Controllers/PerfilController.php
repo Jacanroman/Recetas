@@ -93,14 +93,5 @@ class PerfilController extends Controller
         return redirect()->route('recetas.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Perfil  $perfil
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Perfil $perfil)
-    {
-        //
-    }
+   
 }

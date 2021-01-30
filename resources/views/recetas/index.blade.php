@@ -3,13 +3,7 @@
 
 @section('botones')
 
-    {{--hay dos formas para pasar el id una con el helper Auth::user()
-        otra forma desde el controlador tenemos que pasar el 
-        usuario con el with.--}}
-    <a href="{{route('recetas.create')}}" class="btn btn-primary mr-2">Crear Receta</a>
-    {{--<a href="{{route('perfiles.edit', ['perfil' => $usuario->id])}}" class="btn btn-success mr-2">Editar Perfil</a>--}}
-    <a href="{{route('perfiles.edit', ['perfil'=>Auth::user()->id])}}" class="btn btn-success mr-2">Editar Perfil</a>
-    <a href="{{route('perfiles.show', ['perfil'=>Auth::user()->id])}}" class="btn btn-info mr-2">Ver Perfil</a>
+    @include('ui.navegacion')
 
 @endsection
 {{--esto de @section('content') indica que vamos a hacer 
