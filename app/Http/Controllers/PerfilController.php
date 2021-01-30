@@ -8,7 +8,13 @@ use Intervention\Image\Facades\Image;
 
 class PerfilController extends Controller
 {
-    
+    //habilitamos el middleware de autenticacion
+    public function __construct()
+    {
+        //tiene que estar autenticado excepto para show
+        $this->middleware('auth', ['except'=>'show']);
+    }
+
     /**
      * Display the specified resource.
      *
@@ -30,6 +36,9 @@ class PerfilController extends Controller
      */
     public function edit(Perfil $perfil)
     {
+        //Ejecutar el Policy
+        $this->authorize('view', $perfil);
+        
         //
         return view('perfiles.edit', compact('perfil'));
     }
@@ -43,6 +52,9 @@ class PerfilController extends Controller
      */
     public function update(Request $request, Perfil $perfil)
     {
+        //Ejecutar el Policy
+
+        $this->authorize('update', $perfil);
 
         //dd($request['imagen']);
         //Validar
