@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use app\Http\Controllers\RecetaController;
 /*
@@ -48,6 +49,10 @@ Route::delete('/recetas/{receta}', 'RecetaController@destroy')->name('recetas.de
 Route::get('/perfiles/{perfil}', 'PerfilController@show')->name('perfiles.show');
 Route::get('/perfiles/{perfil}/edit', 'PerfilController@edit')->name('perfiles.edit');
 Route::put('/perfiles/{perfil}', 'PerfilController@update')->name('perfiles.update');
+
+//Todo lo relacionado con Likes Almacena los likes de recetas
+Route::post('/recetas/{receta}', 'LikesController@update')->name('likes.update');
+
 
 
 Auth::routes();

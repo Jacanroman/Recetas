@@ -40,9 +40,22 @@
                 {!!$receta -> preparacion!!}
             </div>
                 
-            <div id="">
-                <span class="like-btn"></span>
+            <div >
+                <span class="like-btn" onclick="LikeReceta('{{$receta->id}}')"></span>
             </div>
         </div>
     </article> 
+    <script>
+        function LikeReceta(recetaId){
+            //console.log("Diste me gusta: ",recetaId);
+            axios.post('http://localhost/recetaslaravel/public/recetas/'+recetaId)
+            //axios.post('/recetas/'+recetaId)
+                .then(respuesta =>{
+                    console.log(respuesta)
+                })
+                .catch(error =>{
+                    console.log(error);
+                });
+        }
+    </script>
 @endsection

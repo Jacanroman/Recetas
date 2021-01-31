@@ -6,3 +6,5 @@ require('./bootstrap');
 $('.like-btn').on('click', function() {
     $(this).toggleClass('like-active');
  });
+
+ 
