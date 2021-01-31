@@ -52,6 +52,24 @@ esta dentro de layouts.app/app.blade.php @yeald('section')--}}
         <div class="col-12 mt-4 justify-content-center d-flex">
             {{$recetas->links()}}
         </div>
-    </div>
+
+        <h2 class="text-center my-5">Recetas que te gustan</h2>
+        <div class="col-md-10 mx-auto bg-white p-3">
+            
+            @if (count($usuario->meGusta) > 0)
+                <ul class="list-group">
+                    @foreach($usuario->meGusta as $receta)
+                        <li class="list-group-item d-flex justify-content-between align-itmes-center">
+                            <p>{{$receta->titulo}}</p>
+
+                            <a class="btn btn-outline-success text-uppercase" href="{{route('recetas.show', ['receta'=>$receta->id])}}">Ver</a>
+                        </li>
+                    @endforeach
+                </ul>
+            @else
+                <p class="text-center">Aun no tienes recetas Guardadas <small> Dale me gusta a las recetas y apareceran aqui</small> </p>
+
+            @endif
+        </div>
 
 @endsection
