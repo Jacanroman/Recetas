@@ -41,7 +41,11 @@
             </div>
                 
             <div >
-                <span class="like-btn" onclick="LikeReceta('{{$receta->id}}')"></span>
+                @if($like)
+                    <span class="like-btn like-active" onclick="LikeReceta('{{$receta->id}}')"></span>
+                @else
+                    <span class="like-btn" onclick="LikeReceta('{{$receta->id}}')"></span>
+                @endif
             </div>
         </div>
     </article> 
