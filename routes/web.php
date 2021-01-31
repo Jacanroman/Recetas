@@ -28,10 +28,7 @@ Route::get('/nosotros','RecetaController@hola');
 //Route::get('/nosotros','RecetaController');
 
 
-Route::get('/', function () {
-    //return "hola mundo";
-    return view('welcome');
-});
+Route::get('/','InicioController@index')->name('inicio.index');
 
 /*con el anterior RecetasController que tenia un invoke
 Route::get('/recetas', 'RecetaController');
