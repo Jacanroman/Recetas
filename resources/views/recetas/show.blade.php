@@ -40,25 +40,34 @@
                 {!!$receta -> preparacion!!}
             </div>
                 
-            <div >
+            <div class="justify-content-center text-center" >
                 @if($like)
                     <span class="like-btn like-active" onclick="LikeReceta('{{$receta->id}}')"></span>
                 @else
                     <span class="like-btn" onclick="LikeReceta('{{$receta->id}}')"></span>
                 @endif
+
+                <p>{{$likes}} Les gusto esta receta</p>
             </div>
         </div>
     </article> 
     <script>
+        
         function LikeReceta(recetaId){
             //console.log("Diste me gusta: ",recetaId);
             axios.post('http://localhost/recetaslaravel/public/recetas/'+recetaId)
             //axios.post('/recetas/'+recetaId)
                 .then(respuesta =>{
-                    console.log(respuesta)
+                    if(respuesta.data.attached.length > 0){
+                       console.log(respuesta.data);
+                    }else{
+                        console.log("adios");
+                    }
                 })
                 .catch(error =>{
-                    console.log(error);
+                    if(error.response.status === 401){
+                        window.location = 'http://localhost/recetaslaravel/public/register';
+                    }
                 });
         }
     </script>
