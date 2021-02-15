@@ -27,7 +27,7 @@ class InicioController extends Controller
         foreach($categorias as $categoria){
             $recetas[Str::slug($categoria->nombre)][] = Receta::where('categoria_id', $categoria->id)->take(3)->get();
         }
-        return $recetas;
+        //return $recetas;
         
 
         //vista con compact le pasamos la variable $nuevas
