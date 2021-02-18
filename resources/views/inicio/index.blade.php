@@ -19,7 +19,7 @@
                         <h3>{{Str::title($nueva->titulo)}}</h3>
                         {{--para escapar el codigo html se usa !!
                             o si lo quieres eliminar usar strip_tags()--}}
-                        <p>{{Str::limit(strip_tags($nueva->preparacion), 50)}}</p>
+                        <p>{{Str::words(strip_tags($nueva->preparacion), 15)}}</p>
 
                         <a href="{{route('recetas.show', ['receta' =>$nueva->id])}}"
                             class="btn btn-primary d-block font-weight-bold text-uppercase"
@@ -43,6 +43,21 @@
                                 <img class="card-img-top" src="/recetaslaravel/storage/app/public/{{$receta->imagen}}" alt="imagen receta">
                                 <div class="card-body">
                                     <h3 class="card-title">{{$receta->titulo}}</h3>
+                                    
+                                    <div class="meta-receta d-flex justify-content-between">
+                                        <p class="text-primary fecha font-weight-bold">
+                                            {{$receta->created_at}}
+                                        </p>
+                                        <p>{{count($receta->likes)}} Les gusto</p>
+                                    </div>
+
+                                    <p class="card-text">
+                                        {{Str::words(strip_tags($nueva->preparacion), 20, '...')}}
+                                    </p>
+
+                                    <a href="{{route('recetas.show', ['receta'=>$receta->id])}}"
+                                        class="btn btn-primary d-block btn-receta">Ver Receta
+                                    </a>
                                 </div>
                             </div>
                         </div>  
