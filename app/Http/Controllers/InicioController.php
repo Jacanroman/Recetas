@@ -12,6 +12,13 @@ class InicioController extends Controller
     //
     public function index()
     {
+
+        //Mostrar las recetas por cantidad de votos dos formas de hacerlo
+        //$votadas = Receta::has('likes', '>', 0)->get();
+        $votadas = Receta::withCount('likes')->orderBy('likes_count','desc')->take(3)->get();
+        
+
+
         //Obtener las recetas mas nuevas (las 2 ultimas que se lo decimos con limits)
         $nuevas = Receta::orderBy('created_at', 'ASC')->limit(2)->get();
         /*Esto anterior se puede hacer tambien asi
@@ -31,6 +38,6 @@ class InicioController extends Controller
         
 
         //vista con compact le pasamos la variable $nuevas
-        return view('inicio.index', compact('nuevas', 'recetas'));
+        return view('inicio.index', compact('nuevas', 'recetas', 'votadas'));
     }
 }
