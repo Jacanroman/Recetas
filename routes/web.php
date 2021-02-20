@@ -44,6 +44,8 @@ Route::delete('/recetas/{receta}', 'RecetaController@destroy')->name('recetas.de
 
 Route::get('/categoria/{categoriaReceta}', 'CategoriasController@show')->name('categorias.show');
 
+//Buscador de recetas
+Route::get('/buscar','RecetaController@search')->name('buscar.show');
 
 //Todo lo relacionado con perfiles
 Route::get('/perfiles/{perfil}', 'PerfilController@show')->name('perfiles.show');

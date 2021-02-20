@@ -253,4 +253,11 @@ class RecetaController extends Controller
         //Redireccionamos
         return redirect()->route('recetas.index');
     }
+
+    public function search(Request $request)
+    {
+        $busqueda = $request->get('buscar');
+
+        return $busqueda;
+    }
 }

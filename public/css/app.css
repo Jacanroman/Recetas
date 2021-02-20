@@ -10109,13 +10109,13 @@ trix-editor {
 }
 
 .hero-categorias {
-  height: 30rem;
+  height: 3rem;
   background-size: cover;
   background-position: top center;
 }
 .hero-categorias .texto-buscar p {
   font-size: 1.4rem;
-  color: #FFF;
+  color: black;
 }
 
 .like-btn {
