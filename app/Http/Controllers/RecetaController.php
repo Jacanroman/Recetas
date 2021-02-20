@@ -19,7 +19,7 @@ class RecetaController extends Controller
 
         //anadiendo Except le decimos que esta todo protegido menos
         // la function que le agregamos en el Except en este caso show estara publico
-        $this->middleware('auth',['except'=>'show']);
+        $this->middleware('auth',['except'=>['show','search']]);
 
         //para agregar varias funciones en el except es 'except'=>['show','create']
     }
@@ -257,7 +257,9 @@ class RecetaController extends Controller
     public function search(Request $request)
     {
         $busqueda = $request->get('buscar');
+        $recetas = Receta::where('titulo','like','%'. $busqueda . '%')->paginate(1);
+        $recetas->appends(['buscar'=>$busqueda]);
 
-        return $busqueda;
+        return view('busquedas.show',compact('recetas', 'busqueda'));
     }
 }
